@@ -1,0 +1,48 @@
+x = None
+y = None
+
+print("Welcome to a simple calculator!")
+
+while True:
+    while True:
+        try:
+            x = int(input("Enter the first number: "))
+            break
+        except ValueError:
+            print("Please enter a valid integer for the first number.")
+
+    while True:
+        operator = input("Enter an operator (+, -, *, /): ")
+        if operator in "+-*/":
+            break
+        print("Please enter a valid operator: +, -, *, or /")
+
+    while True:
+        try:
+            y = int(input("Enter the second number: "))
+            break
+        except ValueError:
+            print("Please enter a valid integer for the second number.")
+
+    if operator == "+":
+        result = x + y
+        print(f"{x} + {y} = {result}")
+    elif operator == "-":
+        result = x - y
+        print(f"{x} - {y} = {result}")
+    elif operator == "*":
+        result = x * y
+        print(f"{x} * {y} = {result}")
+    elif operator == "/":
+        if y == 0:
+            print("Error: Division by zero is not allowed.")
+        else:
+            result = x / y
+            print(f"{x} / {y} = {result}")
+
+    again = input("Do you want to perform another calculation? (yes/no): ").strip().lower()
+    if again not in ("yes", "y"):
+        print("Thank you for using the calculator!")
+        break
+
+
