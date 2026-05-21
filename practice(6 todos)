@@ -1,0 +1,36 @@
+todos = []
+
+print("\n ---Welcome to the To-Do List App!---")
+
+while True:
+    print("\n1. View To-Do List")
+    print("2. Add Task")
+    print("3. Remove Task")
+    print("4. Exit")
+
+    choice = input("Choose an option (1-4): ")
+
+    if choice == "1":
+        if not todos:
+            print("Your to-do list is empty!")
+        else:
+            for i, task in enumerate(todos, 1):
+                print(f"{i}. {task}")
+    elif choice == "2":
+        task = input("Enter a new task: ")
+        todos.append(task)
+        print(f"Task '{task}' added to the list.")
+    elif choice == "3":
+        if not todos:
+            print("Your to-do list is empty! Nothing to remove.")
+        else:
+            for i, task in enumerate(todos, 1):
+                print(f"{i}. {task}")
+            num = int(input("Enter the number of the task to remove: "))
+            removed = todos.pop(num - 1)
+            print(f"Task '{removed}' removed from the list.")
+    elif choice == "4":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice! Please select a valid option.")
